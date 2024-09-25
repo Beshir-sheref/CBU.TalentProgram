@@ -2,7 +2,7 @@
 
 @{
 }
-
+@Html.Partial("_Alerts")
 <form id="uploadForm" asp-action="AddDocuments" asp-controller="Home" method="post" enctype="multipart/form-data">
     
     @foreach(var d in Model)

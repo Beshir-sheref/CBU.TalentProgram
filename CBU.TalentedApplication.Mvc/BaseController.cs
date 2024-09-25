@@ -50,5 +50,10 @@ namespace CBU.TalentedApplication.Mvc
                 return true;
             }
         }
+
+        public IActionResult LoadAlerts()
+        {
+            return PartialView("_AlertMessages");
+        }
     }
 }

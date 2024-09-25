@@ -3,15 +3,11 @@
 *@
 @{
 }
+@Html.Partial("_Alerts")
+
 
 <form asp-controller="Account" asp-action="SignUp" method="post" style="width: 50%;">
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            @TempData["ErrorMessage"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    }
+  
     <input type="text" name="email" placeholder="Email Adresiniz">
 
     <input type="text" name="fullName" placeholder="Ad ve Soyadınız">

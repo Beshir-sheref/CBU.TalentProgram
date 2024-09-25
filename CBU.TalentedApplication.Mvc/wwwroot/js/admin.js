@@ -10,6 +10,7 @@
     });
 });
 
+
 function loadContent(actionName, divId) {
     fetch(`/Admin/${actionName}`)
         .then(response => response.text())
