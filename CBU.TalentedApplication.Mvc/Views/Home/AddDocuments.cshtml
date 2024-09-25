@@ -1,0 +1,30 @@
+﻿@model List<Document>
+
+@{
+}
+
+<form id="uploadForm" asp-action="AddDocuments" asp-controller="Home" method="post" enctype="multipart/form-data">
+    
+    @foreach(var d in Model)
+    {
+        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
+
+        <!-- Hidden input to keep track of Document ID -->
+        <input type="hidden" name="files[@Model.IndexOf(d)].DocumentId" value="@d.Id" />
+
+        <label for="file-@d.Id" style="font-weight: bold; color: aliceblue;  width: 150px;">@d.DocumentName</label>
+
+        <input type="file" id="file-@d.Id" name="files[@Model.IndexOf(d)].file" multiple accept=".pdf,.doc,.docx,.txt" class="form-control mb-3" />
+
+        
+        <div id="previewContainer" class="mb-3">
+            <!-- Previews will be shown here -->    
+
+        </div>
+
+        </div>
+
+    }
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

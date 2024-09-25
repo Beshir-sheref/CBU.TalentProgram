@@ -1,0 +1,11 @@
+﻿@using CBU.TalentedApplication.Business.Model
+
+@model List<Branch>
+
+<select style="background-color:aliceblue" id="branch" name="id">
+    @foreach (var branch in Model)
+    {
+        <option value="@branch.Id">@branch.Name</option>
+    }
+</select>
+

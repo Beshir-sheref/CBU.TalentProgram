@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBU.TalentedApplication.Mvc", "CBU.TalentedApplication.Mvc\CBU.TalentedApplication.Mvc.csproj", "{8089B100-BDCA-4C39-884E-DBF7D35C6295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBU.TalentedApplication.Business", "CBU.TalentedApplication.Business\CBU.TalentedApplication.Business.csproj", "{499A2DD5-C861-4A24-AD62-9149646D5FD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8089B100-BDCA-4C39-884E-DBF7D35C6295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8089B100-BDCA-4C39-884E-DBF7D35C6295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8089B100-BDCA-4C39-884E-DBF7D35C6295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8089B100-BDCA-4C39-884E-DBF7D35C6295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{499A2DD5-C861-4A24-AD62-9149646D5FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{499A2DD5-C861-4A24-AD62-9149646D5FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{499A2DD5-C861-4A24-AD62-9149646D5FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{499A2DD5-C861-4A24-AD62-9149646D5FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F957A0E-E440-4365-AEE3-0B85051FD1D5}
+	EndGlobalSection
+EndGlobal

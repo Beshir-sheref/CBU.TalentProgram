@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Add Criteria";
+}
+@model BranchCriteria
+
+
+
+<h2 style="color :aliceblue">Add Criteria</h2>
+
+<!-- Form for adding criteria -->
+<form asp-controller="Admin" asp-action="AddCriteria" method="post" style="color :aliceblue ;margin :15px">
+    
+    <label name="BranchId" class="control-label">Branch</label>
+    <select style="background-color:aliceblue ; margin:15px" id="branch" name="BranchId" required>
+        @foreach (var branch in Model.branches)
+        {
+            <option value="@branch.Id">@branch.Name</option>
+        }
+    </select>
+    @* <input type="number" name="BranchId" placeholder="BranchId"> *@
+    <input type="text" name="CriteriaName" placeholder="CriteriaName">
+    <input type="number" name="MinAccepted" placeholder="MinAccepted">
+    <input type="number" name="MinValue" placeholder="MinValue">
+    <input type="number" name="MaxValue" placeholder="MaxValue">
+    <input type="number" name="Weight" placeholder="Weight">
+    <button type="submit" style="width: auto; padding: 10px; margin-top: 10px;
+    background-color: darkblue ; border: none; border-radius: 5px; font-size: 16px;
+    color: aliceblue; cursor: pointer;">Kriter Ekle</button>
+</form>
+
+
+    

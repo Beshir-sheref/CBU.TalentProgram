@@ -1,0 +1,29 @@
+﻿@using CBU.TalentedApplication.Business.Model
+
+@model List<Document>
+
+
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Document Name</th>
+            <th scope="col">Branch Id</th>
+            <th scope="col">Required?</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+
+            <tr>
+                <td>@item.DocumentName</td>
+                <td>@item.BranchId</td>
+                <td>@item.Required</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

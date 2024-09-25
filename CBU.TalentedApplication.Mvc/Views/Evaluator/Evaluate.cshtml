@@ -1,0 +1,47 @@
+﻿@model EvaluateViewModel
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div style="color:aliceblue">
+    <h2 class="mb-5">Applicant Evaluation Page</h2>
+    <h4><span style="color:chocolate">Evaluator:</span>  @Model.EvaluatorName </h4>
+    <h4><span style="color:chocolate">Applicant:</span>  @Model.applicantName </h4>
+    <h4><span style="color:chocolate">Branch:   </span>  @Model.BranchName </h4>
+</div>
+
+<form asp-controller="Evaluator" asp-action="Evaluate" method="post" style="width: 50%; margin-top:35px">
+
+    @foreach (var exam in Model.ExamValue)
+    {
+
+        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
+
+            <label for="grade-@exam.ExamId" style="font-weight:bold; color: aliceblue;
+                                                   margin-right: 10px; width: 200px;">@exam.ExamName </label>
+            <input type="number" step="0.01" id="grade-@exam.ExamId" 
+            name="Grades[@Model.ExamValue.IndexOf(exam)].Grade" value="@(exam.Value.HasValue ? exam.Value : null)" 
+            placeholder="@(exam.Value.HasValue ? exam.Value.ToString() : "Not Daha Girilmedi")" />
+            <!-- Hidden input to keep track of Exam ID -->
+            <input type="hidden" name="Grades[@Model.ExamValue.IndexOf(exam)].ExamId" value="@exam.ExamId" />
+        </div>
+    }
+    <!-- Hidden input to keep track of Applicant ID -->
+    <input type="hidden" name="ApplicantId" value="@Model.ExamValue[0].ApplicantId" />
+    <!-- Hidden input to keep track of Applicant ID -->
+    <input type="hidden" name="BranchId" value="@Model.ExamValue[0].BranchId" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Gönder</button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+﻿
+@model List<applicantReview>
+
+<h2 style="color:aliceblue ; margin-bottom:40px">All Applicants List</h2>
+
+<!-- Display error message if any -->
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<!-- Display success message if any -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<table class="table">
+    <thead style="color:gold">
+        <tr>
+            <th>Applicant Name</th>
+            <th>Branch Name</th>
+            <th>Final Score</th>
+            <th>Enter Grades </th>
+        </tr>
+    </thead>
+    <tbody style="color:aliceblue">
+        @foreach (var app in Model)
+        {
+            <tr>
+                <td>@app.ApplicantName</td>
+                <td>@app.branchName</td>
+                <td>@app.finalscore</td>
+                <td>
+                    <a href="@Url.Action("Evaluate", "Evaluator",@app)"
+                       class="btn btn-info btn-sm">Edit</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,59 @@
+﻿@model List<GradedCriterion>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<h1 style="color:aliceblue">Özel Yetenek Programı</h1>
+
+<div class="mb-5">
+    <h3 style="color:aliceblue">Hoş Geldin,@ViewBag.FullName</h3>
+</div>
+
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+
+<form asp-controller="Home" asp-action="AddGrades" method="post" style="width: 50%;">
+
+    @foreach (var criterion in Model)
+    {
+
+        <div class="form-group" style="display: flex; align-items: center; margin-bottom: 15px;">
+
+            <label for="grade-@criterion.Id" style="font-weight: bold; color: aliceblue;
+                        margin-right: 10px; width: 200px;">@criterion.CriteriaName</label>
+
+            <input type="number" step="0.01" id="grade-@criterion.Id" name="Grades[@Model.IndexOf(criterion)].Grade"
+                    placeholder=@(criterion.Grade.HasValue ? criterion.Grade.ToString() :"Notunuzu giriniz")
+                    value=@(criterion.Grade.HasValue ? criterion.Grade : null)
+                    class="form-control" required />
+
+            <!-- Hidden input to keep track of Criterion ID -->
+            <input type="hidden" name="Grades[@Model.IndexOf(criterion)].CriterionId" value="@criterion.Id" />
+
+        </div>
+    }
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Gönder</button>
+    </div>
+    
+</form>

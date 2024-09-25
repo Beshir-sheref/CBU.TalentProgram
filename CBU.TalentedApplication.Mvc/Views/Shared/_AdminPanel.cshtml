@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <script src="~/js/site.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Include jQuery -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/admin.js"></script>
+
+    <style>
+        /* Reset and Box Sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Layout Setup */
+        body {
+            display: flex; /* Use flexbox to create sidebar layout */
+            min-height: 100vh; /* Full height */
+            font-family: Arial, sans-serif;
+            margin: 0; /* Reset margin */
+            background-image: url('https://ubs.cbu.edu.tr/images/bg-tulip.png');
+            background-size: cover;
+            background-position: left;
+            background-attachment: fixed;
+        }
+
+        .sidebar {
+            width: 250px; /* Fixed width for sidebar */
+            background: linear-gradient(45deg, #1e3c72, #2a5298); /* Gradient background */
+            padding-top: 20px; /* Padding at the top */
+            position: fixed; /* Fix to the left */
+            height: 100vh; /* Full height of the viewport */
+            overflow-y: auto; /* Scroll if content overflows */
+            border-right: 1px solid #dee2e6; /* Border for separation */
+        }
+
+            .sidebar .nav-link {
+                color: aliceblue; /* Link color */
+                padding: 10px 15px; /* Padding for links */
+                font-size: 16px; /* Font size for links */
+                display: block; /* Make links block elements */
+                text-decoration: none; /* Remove underlines */
+            }
+
+                .sidebar .nav-link:hover {
+                    background-color: #4e6e8e; /* Hover background color */
+                    color: #ffffff; /* Hover text color */
+                }
+
+        .main-content {
+            flex-grow: 1; /* Allow the main content to expand */
+            margin-left: 250px; /* Same as sidebar width */
+            padding: 20px; /* Padding for the main content */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: aliceblue;
+        }
+    </style>
+
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <!-- Left-Side Main Menu -->
+    <nav class="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-action-name="CriteriaPage">Add Criteria</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-action-name="ExamPage">Add An Exam</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-action-name="BranchPage">Add Branch</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-action-name="DocumentPage">Add Document</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+
+    <div class="container" style="margin-left: 271px;">
+        <main id="main-content">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>

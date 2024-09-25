@@ -1,0 +1,48 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url('bg-tulip.png');
+    background-size: cover;
+    background-position: left;
+    background-attachment: fixed;
+}
+nav {
+    background-color :mediumpurple;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+.bg-purple {
+    background-color: #1A3B5D !important; /* A shade of purple */
+    color: aliceblue; /* Optional: Set text color to white for better readability */
+}
+.text-chocolate {
+    color: #D2691E !important; /* Chocolate color */
+}
+

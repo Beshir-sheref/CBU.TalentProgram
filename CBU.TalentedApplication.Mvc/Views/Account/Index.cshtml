@@ -1,0 +1,44 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <span class="text-danger">@ViewBag.ErrorMessage</span>
+    }
+    @* Check if there's an error message in the TempData *@
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+
+    <div class="text-left mb-5">
+        <h1 style="color:white">özel yetenek programı</h1>
+    </div>
+
+    <form asp-controller="Account" asp-action="Login" method="post" style="width: 50%;">
+        <input type="text" name="email" placeholder="Kullanıcı Adı">
+        <input type="password" name="password" placeholder="Parola">
+        <button type="submit" style="width: 100%; padding: 10px; margin-top: 10px;
+        background-color: #E0E0E0; border: none; border-radius: 5px; font-size: 16px; color: #333; cursor: pointer;">Giriş Yap</button>
+        <div class="form-group" style="display: flex; margin-bottom: 15px;">
+        <a asp-controller="Account" asp-action="LostPassword" style="display: block; margin: 15px; font-size: 14px;
+        color: #E0E0E0; text-decoration: none;">Şifreni mi unuttun?</a>
+        <a asp-controller="Account" asp-action="SignUp" style="display: block; margin: 15px; font-size: 14px;
+        color: #E0E0E0; text-decoration: none;">SignUp</a>
+        </div>
+    </form>
+
+</body>

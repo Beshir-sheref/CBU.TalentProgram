@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Branch>
+
+@{
+    ViewBag.Title = "Add Document";
+}
+
+<h2 Document</h2s>
+
+<!-- Form for adding document -->
+
+<h2 style="color :aliceblue">Add Document</h2>
+
+<form asp-controller="Admin" asp-action="AddDocument" method="post" style="color :aliceblue ;margin :15px">
+
+    <label name="BranchId" class="control-label">Branch</label>
+    <select style="background-color:aliceblue ; margin:15px" id="branch" name="BranchId" required>
+        @foreach (var branch in Model)
+        {
+            <option value="@branch.Id">@branch.Name</option>
+        }
+    </select>
+    <input type="text" name="DocumentName" placeholder="Document Name">
+    <input type="number" name="Required" placeholder="Required? 1 : 0">
+    <button type="submit" style="width: auto; padding: 10px; margin-top: 10px;
+    background-color: darkblue ; border: none; border-radius: 5px; font-size: 16px;
+    color: aliceblue; cursor: pointer;">
+        Ekle
+    </button>
+</form>
+
